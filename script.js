@@ -1,7 +1,4 @@
-const Peer = window.Peer; 
- 
- 
- (async function main() { 
+(async function main() { 
    const localVideo = document.getElementById('js-local-stream'); 
    const joinTrigger = document.getElementById('js-join-trigger'); 
    const leaveTrigger = document.getElementById('js-leave-trigger'); 
@@ -30,16 +27,13 @@ const Peer = window.Peer;
      () => (roomMode.textContent = getRoomModeByHash()) 
    ); 
  
- 　let localStream = null;
-
-  
-//video audio
+ 
    const localStream = await navigator.mediaDevices 
      .getUserMedia({ 
        audio: true, 
        video: true, 
      }) 
-   .catch(console.error); 
+     .catch(console.error); 
  
  
    // Render local stream 
@@ -65,7 +59,6 @@ const Peer = window.Peer;
      } 
  
  
-    
      const room = peer.joinRoom(roomId.value, { 
        mode: getRoomModeByHash(), 
        stream: localStream, 
@@ -140,4 +133,4 @@ const Peer = window.Peer;
  
  
    peer.on('error', console.error); 
- })();
+ })(); 
