@@ -33,22 +33,13 @@ const Peer = window.Peer;
  　let localStream = null;
 
   
-　navigator.mediaDevices.getUserMedia({video: true, audio: true})
-    .then(function (stream) {
-        $('#myStream').get(0).srcObject = stream;
-        localStream = stream;
-    }).catch(function (error) {
-        console.error('mediaDevice.getUserMedia() error:', error);
-        return;
-    });
-  
-  //旧コード
-   //const localStream = await navigator.mediaDevices 
-     //.getUserMedia({ 
-       //audio: true, 
-       //video: true, 
-     //}) 
-     //.catch(console.error); 
+//video audio
+   const localStream = await navigator.mediaDevices 
+     .getUserMedia({ 
+       audio: true, 
+       video: true, 
+     }) 
+   .catch(console.error); 
  
  
    // Render local stream 
